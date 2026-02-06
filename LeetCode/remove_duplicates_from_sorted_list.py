@@ -6,7 +6,7 @@ class Node(object):
         self.next = next
 
 class Solution(object):
-    def removeDuplicates(self, head):
+    def deleteDuplicates(self, head):
         current = head
         while current:
             while current.next is not None and current.val == current.next.val:
