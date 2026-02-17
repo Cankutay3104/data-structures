@@ -1,35 +1,22 @@
-# LeetCode Valid Parentheses Solution
+# LeetCode '20. Valid Parentheses' Solution
 
 class Solution(object):
-
-    def __init__(self):
-        self.characters = []
-
-    def push(self, new_item):
-        self.characters.append(new_item)
-
-    def pop(self):
-        if not self.is_empty():
-            return self.characters.pop()
-        return None
-
-    def peek(self):
-        if not self.is_empty():
-            return self.characters[-1]
-        return None
-    
-    def is_empty(self):
-        return len(self.characters) == 0
-
     def isValid(self, s):
-        combinations = {')':'(', ']':'[', '}':'{'}
-
+        stack = []
+        
         for ch in s:
-            if ch in combinations.values():
-                self.push(ch)
-            elif ch in combinations.keys():
-                if self.peek() == combinations[ch]:
-                    self.pop()
+            if ch == '(' or ch == '{' or ch == '[':
+                stack.append(ch)
+            else:
+                if not stack:
+                    return False
+                
+                if ch == ')' and stack[-1] == '(':
+                    stack.pop()
+                elif ch == '}' and stack[-1] == '{':
+                    stack.pop()
+                elif ch == ']' and stack[-1] == '[':
+                    stack.pop()
                 else:
                     return False
-        return self.is_empty()
+        return len(stack) == 0
