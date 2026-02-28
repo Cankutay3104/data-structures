@@ -1,4 +1,4 @@
-# Leetcode '1929. Concatenation of Array' Solution
+# Leetcode '3110. Score of a String' Solution
 
 
 class Solution:
