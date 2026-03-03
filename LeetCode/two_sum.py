@@ -1,4 +1,4 @@
-# LeetCode '
+# LeetCode '1. Two Sum' Hashmap Solution
 
 class Solution(object):
     def twoSum(self, nums, target):
